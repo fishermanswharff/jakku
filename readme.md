@@ -1,8 +1,3 @@
-git@github.com:fishermanswharff/jakku.git
-git@github.com:fishermanswharff/coruscant.git
-git@github.com:fishermanswharff/endor.git
-git@github.com:fishermanswharff/tatooine.git
-
 # Q1: OOP basics
 
 Write a class called Foobar, that helps implement the following requirement:
