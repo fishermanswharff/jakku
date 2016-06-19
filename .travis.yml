@@ -1,7 +1,6 @@
 language: ruby
-sudo: required
 rvm:
-  - 2.3
+  - 2.3.0
 before_script:
 - sudo rvm install 2.3.0
 script:
