@@ -1,4 +1,4 @@
-# Q1: OOP basics
+# Q1 OOP basics
 
 [![Build Status][ci-image]][ci-url]
 
