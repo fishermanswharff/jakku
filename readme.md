@@ -1,5 +1,7 @@
 # Q1: OOP basics
 
+[![Build Status][ci-image]][ci-url]
+
 Write a class called Foobar, that helps implement the following requirement:
 
 * For each number between 1 and 100, your code needs to print:
@@ -16,3 +18,6 @@ $ cd question1-foobar
 $ bundle install
 $ rspec
 ```
+
+[ci-image]: https://travis-ci.org/fishermanswharff/jakku.svg?branch=master
+[ci-url]: https://travis-ci.org/fishermanswharff/jakku
