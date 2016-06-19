@@ -1,6 +1,8 @@
 language: ruby
+sudo: required
 rvm:
   - 2.3
 before_script:
-- rvm install 2.3.0
-script: rspec spec
+- sudo rvm install 2.3.0
+script:
+- bundle exec rspec spec
