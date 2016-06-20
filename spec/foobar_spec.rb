@@ -2,7 +2,6 @@ require 'spec_helper'
 require_relative '../lib/foobar'
 
 RSpec.describe Foobar do
-
   let(:foobar) { Foobar.new }
 
   describe '.first_hundred' do
@@ -15,7 +14,7 @@ RSpec.describe Foobar do
     end
 
     it 'writes output' do
-      expect{ Foobar.first_hundred }.to output("\n3: foo, \n5: bar, \n6: foo, \n9: foo, \n10: bar, \n12: foo, \n15: foobar, \n18: foo, \n20: bar, \n21: foo, \n24: foo, \n25: bar, \n27: foo, \n30: foobar, \n33: foo, \n35: bar, \n36: foo, \n39: foo, \n40: bar, \n42: foo, \n45: foobar, \n48: foo, \n50: bar, \n51: foo, \n54: foo, \n55: bar, \n57: foo, \n60: foobar, \n63: foo, \n65: bar, \n66: foo, \n69: foo, \n70: bar, \n72: foo, \n75: foobar, \n78: foo, \n80: bar, \n81: foo, \n84: foo, \n85: bar, \n87: foo, \n90: foobar, \n93: foo, \n95: bar, \n96: foo, \n99: foo, \n100: bar \n").to_stdout
+      expect { Foobar.first_hundred }.to output("\n3: foo, \n5: bar, \n6: foo, \n9: foo, \n10: bar, \n12: foo, \n15: foobar, \n18: foo, \n20: bar, \n21: foo, \n24: foo, \n25: bar, \n27: foo, \n30: foobar, \n33: foo, \n35: bar, \n36: foo, \n39: foo, \n40: bar, \n42: foo, \n45: foobar, \n48: foo, \n50: bar, \n51: foo, \n54: foo, \n55: bar, \n57: foo, \n60: foobar, \n63: foo, \n65: bar, \n66: foo, \n69: foo, \n70: bar, \n72: foo, \n75: foobar, \n78: foo, \n80: bar, \n81: foo, \n84: foo, \n85: bar, \n87: foo, \n90: foobar, \n93: foo, \n95: bar, \n96: foo, \n99: foo, \n100: bar \n").to_stdout
     end
   end
 
@@ -35,6 +34,18 @@ RSpec.describe Foobar do
       expect(result).to include '12: foo'
       expect(result).not_to include '4'
       expect(result).not_to include '8'
+    end
+
+    it 'prints :bar after the number if divisible by 5' do
+      expect(result).to include '5: bar'
+      expect(result).to include '10: bar'
+    end
+
+    it 'prints :foobar after the number if divisible by 3 && 5' do
+      expect(range_input).to include '15: foobar'
+      expect(range_input).to include '30: foobar'
+      expect(range_input).to include '45: foobar'
+      expect(range_input).to include '60: foobar'
     end
 
     it 'tries to convert stringified numbers to numbers if possible' do
@@ -68,11 +79,11 @@ RSpec.describe Foobar do
 
     it 'returns a notification if no numbers pass the conditions' do
       expect(foobar.parse(nums: '1')).to eq 'No numbers were parsed.'
-      expect(foobar.parse(nums: ['1', '2', '4', '88'])).to eq 'No numbers were parsed.'
+      expect(foobar.parse(nums: %w(1 2 4 88))).to eq 'No numbers were parsed.'
     end
 
     it 'writes output' do
-      expect{ foobar.parse(nums: 1..100) }.to output("\n3: foo, \n5: bar, \n6: foo, \n9: foo, \n10: bar, \n12: foo, \n15: foobar, \n18: foo, \n20: bar, \n21: foo, \n24: foo, \n25: bar, \n27: foo, \n30: foobar, \n33: foo, \n35: bar, \n36: foo, \n39: foo, \n40: bar, \n42: foo, \n45: foobar, \n48: foo, \n50: bar, \n51: foo, \n54: foo, \n55: bar, \n57: foo, \n60: foobar, \n63: foo, \n65: bar, \n66: foo, \n69: foo, \n70: bar, \n72: foo, \n75: foobar, \n78: foo, \n80: bar, \n81: foo, \n84: foo, \n85: bar, \n87: foo, \n90: foobar, \n93: foo, \n95: bar, \n96: foo, \n99: foo, \n100: bar \n").to_stdout
+      expect { foobar.parse(nums: 1..100) }.to output("\n3: foo, \n5: bar, \n6: foo, \n9: foo, \n10: bar, \n12: foo, \n15: foobar, \n18: foo, \n20: bar, \n21: foo, \n24: foo, \n25: bar, \n27: foo, \n30: foobar, \n33: foo, \n35: bar, \n36: foo, \n39: foo, \n40: bar, \n42: foo, \n45: foobar, \n48: foo, \n50: bar, \n51: foo, \n54: foo, \n55: bar, \n57: foo, \n60: foobar, \n63: foo, \n65: bar, \n66: foo, \n69: foo, \n70: bar, \n72: foo, \n75: foobar, \n78: foo, \n80: bar, \n81: foo, \n84: foo, \n85: bar, \n87: foo, \n90: foobar, \n93: foo, \n95: bar, \n96: foo, \n99: foo, \n100: bar \n").to_stdout
     end
   end
 end
