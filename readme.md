@@ -9,12 +9,13 @@ Write a class called Foobar, that helps implement the following requirement:
   * `"<number>: bar"` if it’s divisible by 5 - e.g. `"10: bar"`
   * `"<number>: foobar"` if it’s divisible by both 3 and 5 - e.g. `"15: foobar"`
 
+## Installation
+
 ```bash
 # dependencies:
 # ruby 2.3
 # bundler gem
 
-$ cd question1-foobar
 $ bundle install
 $ rspec
 ```
