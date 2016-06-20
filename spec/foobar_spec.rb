@@ -39,6 +39,10 @@ RSpec.describe Foobar do
     it 'prints :bar after the number if divisible by 5' do
       expect(result).to include '5: bar'
       expect(result).to include '10: bar'
+      expect(range_input).to include '20: bar'
+      expect(range_input).to include '25: bar'
+      expect(range_input).to include '70: bar'
+      expect(range_input).to include '80: bar'
     end
 
     it 'prints :foobar after the number if divisible by 3 && 5' do
